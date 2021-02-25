@@ -42,7 +42,6 @@ namespace CSharpAsynchronousProgramming
                 }
             });
             Console.WriteLine("Task1 end");
-            //Console.ReadKey();
         }
         static async Task Task2()
         {
@@ -54,7 +53,6 @@ namespace CSharpAsynchronousProgramming
                 }
             });
             Console.WriteLine("Task2 end");
-            //Console.ReadKey();
         }
     }
 }
