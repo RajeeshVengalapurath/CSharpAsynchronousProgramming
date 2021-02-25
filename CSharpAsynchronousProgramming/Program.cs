@@ -7,8 +7,9 @@ namespace CSharpAsynchronousProgramming
     {
         static async Task Main(string[] args)
         {
-            await StartTasksConcurrently();
+            //await StartTasksConcurrently();
             //await StartTasksSequentially();
+            await WaitForAllTasksToFinish();
             Console.WriteLine("Main end");
         }
         static async Task StartTasksConcurrently()
@@ -24,6 +25,13 @@ namespace CSharpAsynchronousProgramming
             await Task1();
             await Task2();
         }
+        static async Task WaitForAllTasksToFinish()
+        {
+            var task1 = Task1();
+            var task2 = Task2();
+
+            await Task.WhenAll(task1, task2);
+        }
         static async Task Task1()
         {
             Console.WriteLine("Task1 start");
@@ -34,7 +42,6 @@ namespace CSharpAsynchronousProgramming
                 }
             });
             Console.WriteLine("Task1 end");
-            Console.ReadKey();
         }
         static async Task Task2()
         {
@@ -46,7 +53,6 @@ namespace CSharpAsynchronousProgramming
                 }
             });
             Console.WriteLine("Task2 end");
-            Console.ReadKey();
         }
     }
 }
