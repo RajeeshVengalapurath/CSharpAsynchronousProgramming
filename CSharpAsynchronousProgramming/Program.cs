@@ -7,16 +7,22 @@ namespace CSharpAsynchronousProgramming
     {
         static async Task Main(string[] args)
         {
-            /*var task2 = Task2();
+            await StartTasksConcurrently();
+            //await StartTasksSequentially();
+            Console.WriteLine("Main end");
+        }
+        static async Task StartTasksConcurrently()
+        {
             var task1 = Task1();
+            var task2 = Task2();
 
+            await task1;
             await task2;
-            await task1;*/
-
+        }
+        static async Task StartTasksSequentially()
+        {
             await Task1();
             await Task2();
-
-            Console.WriteLine("Main end");
         }
         static async Task Task1()
         {
