@@ -9,8 +9,9 @@ namespace CSharpAsynchronousProgramming
         {
             //await StartTasksConcurrently();
             //await StartTasksSequentially();
-            await WaitForAllTasksToFinish();
-            Console.WriteLine("Main end");
+            //await WaitForAllTasksToFinish();
+            int value = await GetIntValueTask();
+            Console.WriteLine(value);
         }
         static async Task StartTasksConcurrently()
         {
@@ -53,6 +54,15 @@ namespace CSharpAsynchronousProgramming
                 }
             });
             Console.WriteLine("Task2 end");
+        }
+        /// <summary>
+        /// Starting with C# 7.0, an async method can return any type that has an accessible GetAwaiter method
+        /// </summary>
+        /// <returns></returns>
+        static async ValueTask<int> GetIntValueTask()
+        {
+            int r=9;
+            return r;
         }
     }
 }
